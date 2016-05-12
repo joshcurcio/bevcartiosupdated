@@ -106,6 +106,8 @@ class GolfCoursePickerVC: UIViewController , UIPickerViewDelegate, STPPaymentCar
                 allItems.updateValue("\(self.holeNumTF.text!)", forKey: "hole")
                 Core.fireBaseRef.childByAppendingPath("orders").childByAutoId().setValue(allItems)
 
+                let vc = self.storyboard?.instantiateViewControllerWithIdentifier("UserVC") as! UserVC
+                self.presentViewController(vc, animated: true, completion: nil)
             }
         }
         task.resume()
